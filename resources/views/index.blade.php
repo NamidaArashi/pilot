@@ -43,6 +43,9 @@
                       @slot('image_path')
                           {{ $category->image_path }}
                       @endslot
+                      @slot('tag')
+                          {{ $category->tag }}
+                      @endslot
                   @endcomponent
               @endforeach
           </div>

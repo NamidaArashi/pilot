@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('index', compact('categories'));
 });
 
-Route::get('blog/{tag}', function ($tag) {
+Route::get('{tag}', function ($tag) {
 
-    $contents = Content::where('tag', $tag)->get();
-    return view('blog', compact('contents'));
+    $category = Category::where('tag', $tag)->first();
+    return view('category', compact('category'));
 });
