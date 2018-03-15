@@ -10,11 +10,10 @@
         <link rel="shortcut icon" href=" {{ asset('images/helmet.png') }}">
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Raleway:100,400,800,500,600" rel="stylesheet" type="text/css">
+        <link href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" rel="stylesheet">
         <!-- Styles -->
-        <link href="{{ asset('css/fontawesome.min.css') }}" rel="stylesheet">
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <link href="{{ asset('css/set1.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/set2.css') }}" rel="stylesheet">
 
         <style>
              html, body {
