@@ -1,5 +1,7 @@
 <?php
 
+use App\Content;
+use App\Category;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,5 +14,13 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $categories = Category::all()->sort();
+
+    return view('index', compact('categories'));
+});
+
+Route::get('blog/{tag}', function ($tag) {
+
+    $contents = Content::where('tag', $tag)->get();
+    return view('blog', compact('contents'));
 });
