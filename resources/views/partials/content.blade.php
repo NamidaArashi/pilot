@@ -1,4 +1,10 @@
 <header>
-  <h2>{{ $title }}</h2>
+
+  @if ($slot != "")
+    <h1>{{ $title }}</h1>
+  @else
+    <h2>{{ $title }}</h2>
+  @endif
 </header>
-<p>{{ $slot }}</p>
+
+<p class="text-justify">{{ $body }}</p>

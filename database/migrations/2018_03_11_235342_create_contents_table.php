@@ -15,12 +15,14 @@ class CreateContentsTable extends Migration
     {
         Schema::create('contents', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('post_id')->unsigned();
+            $table->integer('post_id')->unsigned()->nullable();
             $table->foreign('post_id')->references('id')->on('posts');
+            $table->string('categ_tag',24)->nullable();
+            $table->foreign('categ_tag')->references('tag')->on('categories');
             $table->string('title',150);
             $table->text('body');
-            $table->enum('type', ['intro', 'content']);
-            $table->string('image_path');
+            $table->enum('type', ['intro', 'content'])->default('content');
+            $table->string('image_path')->nullable()->default(null);
             $table->timestamps();
         });
     }

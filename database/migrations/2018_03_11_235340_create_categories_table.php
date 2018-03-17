@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->string('title',20)->unique();
             $table->string('body');
             $table->string('tag',24)->unique();
-            $table->string('image_path');
+            $table->string('image_path')->default('0.png');
             $table->timestamps();
         });
     }

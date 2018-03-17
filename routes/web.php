@@ -2,6 +2,8 @@
 
 use App\Content;
 use App\Category;
+use App\Product;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +22,16 @@ Route::get('/', function () {
 });
 
 Route::get('{tag}', function ($tag) {
+    $products = Product::where('categ_tag', $tag)->get()->sort();
+    $title = Category::where('tag', $tag)->first()->value('title');
+    $intro = Content::where([
+                          ['categ_tag', $tag],
+                          ['type', 'intro'],
+                      ])->first();
+    $contents = Content::where([
+                            ['categ_tag', $tag],
+                            ['type', 'content'],
+                        ])->get()->sort();
 
-    $category = Category::where('tag', $tag)->first();
-    return view('category', compact('category'));
+    return view('category', compact('products', 'title', 'intro', 'contents'));
 });
